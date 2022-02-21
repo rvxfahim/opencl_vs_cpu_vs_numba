@@ -135,3 +135,4 @@ cv2.imshow('GPU', imread.imread('gray_gpu.jpg'))
 cv2.imshow('Numba', imread.imread('gray_numba.jpg'))
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+#end
