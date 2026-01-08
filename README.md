@@ -37,7 +37,7 @@ If you are on a headless machine or do not have an OpenCL device, you can still 
 
 ## Results from a recent run
 
-Measured on a GitHub-hosted runner (AMD EPYC 7763, 4 vCPUs, Python 3.12) using the full `gigapixel.jpg` image. Times are wall-clock seconds.
+Measured on a GitHub-hosted runner (AMD EPYC 7763, 4 vCPUs, Python 3.12) using the full `gigapixel.jpg` image (5627x10000, uint8 RGB, ~2.4 MB). Times are wall-clock seconds. Dependency versions for this run: `numpy 2.3.5`, `numba 0.63.1`, `imageio 2.37.2`.
 
 | Method                  | Time (s) | Notes                                          |
 | ----------------------- | -------- | ---------------------------------------------- |
