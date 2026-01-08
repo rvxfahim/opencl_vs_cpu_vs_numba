@@ -33,17 +33,4 @@ The provided `benchmark.py` script expects a display for `cv2.imshow` and an Ope
 python benchmark.py
 ```
 
-If you are on a headless machine or do not have an OpenCL device, you can still exercise the CPU and Numba paths by running just the computational sections (e.g., by commenting out the `cv2.imshow` calls). The measurements below were collected that way while keeping the input image unchanged.
-
-## Results from a recent run
-
-Measured on a GitHub-hosted runner (AMD EPYC 7763, 4 vCPUs, Python 3.12) using the full `gigapixel.jpg` image (5627x10000, uint8 RGB, ~2.4 MB). Times are wall-clock seconds. Dependency versions for this run: `numpy 2.3.5`, `numba 0.63.1`, `imageio 2.37.2`.
-
-| Method                  | Time (s) | Notes                                          |
-| ----------------------- | -------- | ---------------------------------------------- |
-| CPU nested 2D loops     | 35.97    | Pure Python double loop over height and width. |
-| CPU flattened 1D loop   | 25.35    | Loops over flattened arrays.                   |
-| Numba @njit 2D loop     | 0.33     | First call includes JIT compilation overhead.  |
-| OpenCL kernel           | n/a      | Not executed here (no OpenCL device available).|
-
-Even with the large image, Numba delivered two orders of magnitude faster execution than pure Python loops. The OpenCL path could not be exercised on the available runner; if you have an OpenCL-capable GPU or CPU runtime, install `pyopencl` and rerun `benchmark.py` to compare its performance.
+If you are on a headless machine or do not have an OpenCL device, you can still exercise the CPU and Numba paths by running just the computational sections (e.g., by commenting out the `cv2.imshow` calls). Feel free to record your own timings on `gigapixel.jpg` (5627x10000, uint8 RGB, ~2.4 MB) or any other image to compare approaches on your hardware.
